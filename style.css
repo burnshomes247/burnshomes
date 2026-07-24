@@ -201,7 +201,7 @@ section { padding: 70px 0; }
   border-bottom: 1px solid var(--hairline);
 }
 .testimonial:nth-child(2n) { border-right: none; }
-.testimonial p { font-size: 14px; line-height: 1.85; color: var(--text); font-style: italic; margin-bottom: 16px; }
+.testimonial p { font-size: 19px; line-height: 1.75; color: var(--text); font-style: italic; margin-bottom: 16px; }
 .testimonial .name { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--navy); }
 @media (max-width: 760px) {
   .testimonial-grid { grid-template-columns: 1fr; }

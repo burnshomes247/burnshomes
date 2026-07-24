@@ -181,7 +181,7 @@ section { padding: 70px 0; }
   text-transform: uppercase;
   margin-bottom: 12px;
 }
-.card p, .card li { font-size: 14.5px; line-height: 1.75; color: var(--text); }
+.card p, .card li { font-size: 17px; line-height: 1.75; color: var(--text); }
 .card ul { list-style: none; margin-top: 10px; }
 .card li { padding: 6px 0; border-bottom: 1px solid var(--hairline); }
 .card li:last-child { border-bottom: none; }

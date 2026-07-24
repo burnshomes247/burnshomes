@@ -227,9 +227,10 @@ section { padding: 70px 0; }
   border: 1px solid var(--tan);
   padding: 30px 32px;
   margin-bottom: 20px;
+  text-align: center;
 }
 .license-block h3 {
-  font-size: 14px;
+  font-size: 17px;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--navy);
@@ -237,7 +238,7 @@ section { padding: 70px 0; }
   padding-bottom: 12px;
   border-bottom: 1px solid var(--hairline);
 }
-.license-block p { font-size: 14.5px; line-height: 1.8; color: var(--text); }
+.license-block p { font-size: 17px; line-height: 1.9; color: var(--text); }
 
 /* ---- CTA BAND ---- */
 .cta-band {

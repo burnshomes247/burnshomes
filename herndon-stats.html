@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Herndon Real Estate Market Stats | BURNSHOMES</title>
+<style>
+  :root {
+    --cream: #f5f2ea;
+    --navy: #072d5e;
+    --steel: #5889b4;
+    --brick: #a3402c;
+    --gold: #b3872a;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--navy);
+    font-family: Georgia, 'Times New Roman', serif;
+    line-height: 1.55;
+  }
+
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 56px 24px 40px;
+  }
+
+  /* ---- Header ---- */
+  header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .logo-link {
+    display: inline-block;
+    margin-bottom: 14px;
+  }
+
+  .logo {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: block;
+  }
+
+  .wordmark {
+    font-size: 15px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin: 0 0 10px;
+  }
+
+  .rule {
+    width: 64px;
+    height: 1px;
+    background: var(--gold);
+    margin: 0 auto 28px;
+  }
+
+  h1 {
+    font-size: 30px;
+    font-weight: normal;
+    margin: 0 0 10px;
+    letter-spacing: 0.01em;
+  }
+
+  .subhead {
+    font-size: 19px;
+    color: #33507a;
+    margin: 0 auto;
+    max-width: 480px;
+  }
+
+  /* ---- Stat blocks ---- */
+  .stat-block {
+    border: 1px solid var(--navy);
+    padding: 2px;
+    margin-bottom: 28px;
+  }
+
+  .stat-inner {
+    border: 1px solid var(--navy);
+    padding: 28px 28px 24px;
+  }
+
+  .stat-heading {
+    font-size: 20px;
+    margin: 0 0 8px;
+    color: var(--navy);
+  }
+
+  .stat-explainer {
+    font-size: 15px;
+    color: #3a3a3a;
+    margin: 0 0 20px;
+    max-width: 560px;
+  }
+
+  .chart-placeholder {
+    width: 100%;
+    display: block;
+  }
+
+  .chart-caption {
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #7a7a7a;
+    text-align: right;
+    margin-top: 6px;
+  }
+
+  .legend {
+    display: flex;
+    gap: 22px;
+    margin-top: 10px;
+    font-size: 13px;
+    color: #444;
+  }
+
+  .legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .swatch {
+    width: 14px;
+    height: 3px;
+    display: inline-block;
+  }
+
+  /* ---- Gauge (snapshot metrics) ---- */
+  .gauge-value {
+    font-size: 40px;
+    color: var(--navy);
+    margin: 4px 0 2px;
+  }
+
+  .gauge-label {
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--brick);
+    margin: 0 0 18px;
+  }
+
+  .gauge-track {
+    position: relative;
+    height: 10px;
+    border-radius: 5px;
+    background: #e3ddcd;
+    overflow: visible;
+    margin-bottom: 8px;
+  }
+
+  .gauge-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 10px;
+    border-radius: 5px;
+    background: var(--steel);
+  }
+
+  .gauge-marker {
+    position: absolute;
+    top: -5px;
+    width: 2px;
+    height: 20px;
+    background: var(--navy);
+  }
+
+  .gauge-bands {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #8a8a8a;
+    margin-top: 6px;
+  }
+
+  /* ---- Footer ---- */
+  footer {
+    margin-top: 44px;
+    text-align: center;
+    border-top: 1px solid var(--gold);
+    padding-top: 22px;
+  }
+
+  .footer-line {
+    font-size: 13px;
+    color: var(--navy);
+    margin: 3px 0;
+  }
+
+  .footer-name {
+    text-transform: uppercase;
+  }
+
+  .footer-note {
+    margin-top: 14px;
+    font-size: 11px;
+    color: #8a8a8a;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (max-width: 480px) {
+    .wrap { padding: 36px 18px 28px; }
+    h1 { font-size: 25px; }
+    .stat-inner { padding: 22px 18px 18px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <a class="logo-link" href="https://burnshomes.com">
+      <img class="logo" src="https://raw.githubusercontent.com/burnshomes247/listings/main/burnshomes-logo.png" alt="BURNSHOMES">
+    </a>
+    <p class="wordmark">BURNSHOMES</p>
+    <div class="rule"></div>
+    <h1>Herndon Real Estate, By the Numbers</h1>
+    <p class="subhead">A quick look at where the local market stands right now.</p>
+  </header>
+
+  <!-- STAT BLOCK 1: Supply vs Demand -->
+  <div class="stat-block">
+    <div class="stat-inner">
+      <h2 class="stat-heading">Supply vs. Demand</h2>
+      <p class="stat-explainer">Whether more homes are coming onto the market than buyers can absorb, or the reverse — the balance that drives everything else on this page.</p>
+
+      <svg class="chart-placeholder" viewBox="0 0 600 220" xmlns="http://www.w3.org/2000/svg">
+        <line x1="10" y1="143.6" x2="590" y2="143.6" stroke="#b3872a" stroke-width="1" stroke-dasharray="3,3"/>
+        <polyline fill="none" stroke="#072d5e" stroke-width="2.5"
+          points="10,170.7 58.3,178.4 106.7,166.8 155,143.6 203.3,120.5 251.7,128.2 300,147.5 348.3,112.7 396.7,35.5 445,66.4 493.3,105 541.7,93.4 590,157.9" />
+        <circle cx="590" cy="157.9" r="4" fill="#a3402c"/>
+        <line x1="10" y1="190" x2="590" y2="190" stroke="#072d5e" stroke-width="1"/>
+        <text x="10" y="205" font-family="Georgia, serif" font-size="12" fill="#7a7a7a">Sep &#39;23</text>
+        <text x="270" y="205" font-family="Georgia, serif" font-size="12" fill="#7a7a7a">May &#39;25</text>
+        <text x="555" y="205" font-family="Georgia, serif" font-size="12" fill="#7a7a7a">Now</text>
+      </svg>
+      <div class="legend">
+        <span><span class="swatch" style="background:#072d5e;"></span>Supply growth minus demand growth (year over year)</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STAT BLOCK 2: Vs DC-Metro Benchmark -->
+  <div class="stat-block">
+    <div class="stat-inner">
+      <h2 class="stat-heading">Herndon vs. the National Market</h2>
+      <p class="stat-explainer">How Herndon home prices have moved compared to the national market since 2010 — a long view of whether this neighborhood is outperforming or lagging the country as a whole.</p>
+
+      <svg class="chart-placeholder" viewBox="0 0 600 220" xmlns="http://www.w3.org/2000/svg">
+        <line x1="10" y1="76.7" x2="590" y2="76.7" stroke="#b3872a" stroke-width="1" stroke-dasharray="3,3"/>
+        <polyline fill="none" stroke="#5889b4" stroke-width="2.5"
+          points="10,76.7 74.4,37 138.9,59.7 203.3,82.3 267.8,82.3 332.2,99.3 396.7,161.7 461.1,133.3 525.6,122 590,115" />
+        <circle cx="590" cy="115" r="4" fill="#a3402c"/>
+        <line x1="10" y1="190" x2="590" y2="190" stroke="#072d5e" stroke-width="1"/>
+        <text x="10" y="205" font-family="Georgia, serif" font-size="12" fill="#7a7a7a">2010</text>
+        <text x="270" y="205" font-family="Georgia, serif" font-size="12" fill="#7a7a7a">2018</text>
+        <text x="565" y="205" font-family="Georgia, serif" font-size="12" fill="#7a7a7a">Now</text>
+      </svg>
+      <div class="legend">
+        <span><span class="swatch" style="background:#5889b4;"></span>Herndon (20170) cumulative price change vs. U.S.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STAT BLOCK 3: Price Cuts % (snapshot) -->
+  <div class="stat-block">
+    <div class="stat-inner">
+      <h2 class="stat-heading">Homes With a Price Reduction</h2>
+      <p class="stat-explainer">The share of active Herndon listings that have cut their asking price at least once — a good read on how much negotiating room buyers currently have.</p>
+
+      <p class="gauge-value">38.7%</p>
+      <p class="gauge-label">of active listings</p>
+      <div class="gauge-track">
+        <div class="gauge-fill" style="width: 38.7%;"></div>
+        <div class="gauge-marker" style="left: 38.7%;"></div>
+      </div>
+      <div class="gauge-bands">
+        <span>0%</span>
+        <span>50%</span>
+        <span>100%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STAT BLOCK 4: Motivated Seller Index (snapshot) -->
+  <div class="stat-block">
+    <div class="stat-inner">
+      <h2 class="stat-heading">Seller Motivation</h2>
+      <p class="stat-explainer">A 0-10 score of how eager Herndon sellers currently are to make a deal, based on how long homes sit and how often prices get cut.</p>
+
+      <p class="gauge-value">5.3</p>
+      <p class="gauge-label">Motivated</p>
+      <div class="gauge-track">
+        <div class="gauge-fill" style="width: 53%;"></div>
+        <div class="gauge-marker" style="left: 53%;"></div>
+      </div>
+      <div class="gauge-bands">
+        <span>Neutral</span>
+        <span>Stubborn</span>
+        <span>Motivated</span>
+        <span>Fire Selling</span>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p class="footer-line footer-name">Mike Burns</p>
+    <p class="footer-line">BURNSHOMES · RE/MAX Allegiance</p>
+    <p class="footer-line">(703) 403-2022 · mike@burnshomes.com</p>
+    <p class="footer-line">Licensed in VA, MD &amp; DC</p>
+    <p class="footer-note">Data provided is deemed reliable but is not guaranteed. Information obtained from public records and MLS sources.</p>
+  </footer>
+
+</div>
+</body>
+</html>

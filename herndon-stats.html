@@ -5,7 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Herndon, VA Real Estate Market Stats | BURNSHOMES</title>
 <meta name="description" content="Herndon, VA home sales from the last 30 days: what sold, what's under contract, and how fast. Updated monthly by Mike Burns, BURNSHOMES.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <style>
+  .map-wrap { margin: 0 0 44px; }
+  #map { height: 420px; background: #e9e4d6; }
+  #map .leaflet-tile-pane { filter: grayscale(1) sepia(0.15) contrast(0.92) brightness(1.04); }
+  .legend { display: flex; justify-content: center; gap: 28px; margin: 12px 0 0; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); }
+  .legend i { display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 8px; vertical-align: -1px; }
+  .legend .k-sold { background: var(--navy); border: 2px solid #fff; box-shadow: 0 0 0 1px var(--navy); }
+  .legend .k-uc { background: rgba(163,64,44,0.35); border: 2px solid var(--brick); }
+  .leaflet-popup-content { font-family: Georgia, serif; color: var(--navy); font-size: 15px; line-height: 1.4; margin: 12px 16px; }
+  .leaflet-popup-content b { font-weight: normal; font-size: 16px; }
+  .leaflet-popup-content .pk { display: block; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--brick); margin-bottom: 2px; }
+  .leaflet-popup-content .pd { color: var(--ink); font-size: 14px; }
+  .leaflet-popup-content-wrapper { border-radius: 2px; }
+  @media (max-width: 520px) { #map { height: 340px; } .legend { gap: 18px; font-size: 12px; } }
   :root {
     --cream: #f5f2ea;
     --navy: #072d5e;
@@ -131,6 +146,11 @@
     <p class="callout-small">The difference is almost always price and preparation.</p>
   </div>
 
+  <div class="map-wrap">
+    <div class="frame"><div class="frame-inner"><div id="map" role="img" aria-label="Map of Herndon homes sold and under contract in the last 30 days"></div></div></div>
+    <p class="legend"><span><i class="k-sold"></i>Sold</span><span><i class="k-uc"></i>Under Contract</span></p>
+  </div>
+
   <section>
     <h2>Recently Sold <span>8 Homes</span></h2>
     <ul class="list colhead"><li><span>Address</span><span>Sold For</span><span class="dom">Days on Mkt</span></li></ul>
@@ -199,5 +219,59 @@
   </footer>
 
 </div>
+<script>
+(function () {
+  if (typeof L === 'undefined') { var m = document.querySelector('.map-wrap'); if (m) m.style.display = 'none'; return; }
+  // Sold homes: [lat, lng, address, price, days on market]
+  var sold = [
+    [38.97861, -77.39991, '1301 Lopp Ct', '$725,000', 26],
+    [38.98636, -77.37006, '1588 Kingstream Cir', '$912,026', 73],
+    [38.97425, -77.37546, '904 Dunbarton Ct', '$750,000', 7],
+    [38.97213, -77.41016, '808 Autumn Breeze Ct', '$922,000', 13],
+    [38.97244, -77.37339, '405 Madison Forest Dr', '$930,000', 6],
+    [38.97220, -77.41028, '811 Autumn Breeze Ct', '$905,000', 54],
+    [38.94150, -77.41550, '13890 Aviation Pl', '$758,700', null],
+    [38.96540, -77.38422, '632 Nash St', '$1,236,000', 49]
+  ];
+  // Under contract: shown as a general area by street, not an exact home. [lat, lng, street, asking, days]
+  var uc = [
+    [38.99426, -77.39102, 'Reams Station Pl', '$750,000', 0],
+    [38.99194, -77.35678, 'Gilman Ln', '$1,150,000', 3],
+    [38.96430, -77.41065, 'Maleady Dr', '$710,000', 4],
+    [38.98576, -77.39049, 'Blacksmith Ln', '$850,000', 4],
+    [38.96040, -77.37984, 'Quietwalk Ln', '$824,900', 5],
+    [38.94150, -77.41550, 'Aviation Pl (4 new homes)', '$783,990&ndash;$890,990', '9&ndash;26'],
+    [38.96413, -77.38730, 'Fairfax Ln', '$874,950', 10],
+    [38.99523, -77.34728, 'Caris Glenne Dr', '$1,575,000', 12],
+    [38.98685, -77.36394, 'Heather Down Dr', '$825,000', 20],
+    [38.94650, -77.39500, 'Hattontown Sq', '$795,000', 47],
+    [39.00466, -77.36336, 'Sugar Maple Ln', '$1,150,000', 50],
+    [38.99576, -77.38031, 'Cellar Creek Way', '$800,000', 60],
+    [38.98900, -77.35300, 'Judd Ct', '$1,124,888', 62],
+    [38.97821, -77.37845, 'Dranesville Rd', '$830,000', 66],
+    [38.95951, -77.38402, 'Alabama Dr', '$724,900', 75]
+  ];
+  var map = L.map('map', { scrollWheelZoom: false, zoomControl: true, attributionControl: true });
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 17, subdomains: 'abc',
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  }).addTo(map);
+  var navy = '#072d5e', brick = '#a3402c', pts = [];
+  function days(d) { return d === null ? 'New construction' : d + (d === 1 ? ' day' : ' days') + ' on market'; }
+  uc.forEach(function (h) {
+    L.circle([h[0], h[1]], { radius: 170, color: brick, weight: 2, fillColor: brick, fillOpacity: 0.28 })
+      .bindPopup('<span class="pk">Under Contract</span><b>' + h[2] + '</b><br><span class="pd">Asking ' + h[3] + ' &middot; ' + (typeof h[4] === 'number' ? days(h[4]) : h[4] + ' days on market') + '</span>')
+      .addTo(map);
+    pts.push([h[0], h[1]]);
+  });
+  sold.forEach(function (h) {
+    L.circleMarker([h[0], h[1]], { radius: 8, color: '#fff', weight: 2, fillColor: navy, fillOpacity: 1 })
+      .bindPopup('<span class="pk">Sold</span><b>' + h[2] + '</b><br><span class="pd">' + h[3] + ' &middot; ' + days(h[4]) + '</span>')
+      .addTo(map);
+    pts.push([h[0], h[1]]);
+  });
+  map.fitBounds(pts, { padding: [24, 24] });
+})();
+</script>
 </body>
 </html>

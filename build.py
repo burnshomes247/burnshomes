@@ -37,7 +37,7 @@ def footer():
     return f"""<footer class="site-footer">
 <img class="footer-logo" src="{LOGO}" alt="BURNSHOMES">
 <div class="agent">Mike Burns, Realtor</div>
-<div class="agent-sub">RE/MAX Allegiance</div>
+<div class="agent-sub">RLAH Real Estate</div>
 <div class="footer-links">
 {links}
 </div>
@@ -130,7 +130,7 @@ about_body = f"""
 <section>
 <div class="container prose">
 <p>Mike Burns has called the DMV home since his family relocated from Upstate New York when he was 12 years old. Growing up in Ocean City, Mike worked various jobs during his middle and high school years &mdash; from caddying at Ocean Pines Golf Course and delivering fudge to the Candy Kitchens, to serving breakfast at The General's Kitchen and cleaning glasses behind the bar at The Bonfire. One summer, he even delivered furniture at Resort Furnishings, where his mother was the manager &mdash; though three months of moving furniture was enough to convince him to pursue other career paths.</p>
-<p>After graduating from the University of Maryland, Mike knew he wanted a career focused on helping people plan for their future. He began his professional journey at Transamerica Financial, providing financial services, then transitioned to First Atlantic Mortgage, where he gained valuable insight into the mortgage process. That experience became an essential foundation for his work with real estate clients, starting at Long &amp; Foster and now with RE/MAX Allegiance.</p>
+<p>After graduating from the University of Maryland, Mike knew he wanted a career focused on helping people plan for their future. He began his professional journey at Transamerica Financial, providing financial services, then transitioned to First Atlantic Mortgage, where he gained valuable insight into the mortgage process. That experience became an essential foundation for his work with real estate clients, starting at Long &amp; Foster, then RE/MAX Allegiance, and now with RLAH Real Estate.</p>
 <p>Mike has lived in various parts of the DMV, including Rockville, Bethesda, Falls Church, Arlington, Dupont Circle, Logan Circle, Reston, and Herndon &mdash; giving him a deep understanding of the region and the unique qualities of each area's real estate market.</p>
 <p>Mike comes from a large family with five siblings. He is married to his wife, Alicia, a Certified Residential Appraiser with over 35 years of DC-metro experience, and together they have a son named Mack.</p>
 </div>
@@ -277,9 +277,9 @@ broker_body = f"""
 <p>Michael Timothy Burns Jr<br>
 Agent License 0225 064462<br>
 Broker License 0226 010271</p>
-<p style="margin-top:14px;">RE/MAX Allegiance<br>
-4157 Chain Bridge Road, Fairfax, Virginia 22030<br>
-(703) 563-2200</p>
+<p style="margin-top:14px;">RLAH Real Estate<br>
+4075 Wilson Blvd, Suite 720, Arlington, VA 22203<br>
+(703) 390-9460</p>
 </div>
 
 <div class="license-block">
@@ -287,9 +287,9 @@ Broker License 0226 010271</p>
 <p>Michael T Burns Jr<br>
 Agent License 529946<br>
 Broker License 31417</p>
-<p style="margin-top:14px;">RE/MAX Allegiance<br>
-701 E Street SE, Washington, DC 20003<br>
-(202) 547-5600</p>
+<p style="margin-top:14px;">RLAH Real Estate<br>
+4075 Wilson Blvd, Suite 720, Arlington, VA 22203<br>
+(703) 390-9460</p>
 </div>
 
 <div class="license-block">
@@ -297,9 +297,9 @@ Broker License 31417</p>
 <p>Michael T Burns Jr<br>
 Agent License SP102631<br>
 Broker License LL98363268</p>
-<p style="margin-top:14px;">RE/MAX Allegiance<br>
-701 E Street SE, Washington, DC 20003<br>
-(202) 547-5600</p>
+<p style="margin-top:14px;">RLAH Real Estate<br>
+4075 Wilson Blvd, Suite 720, Arlington, VA 22203<br>
+(703) 390-9460</p>
 </div>
 
 <p style="text-align:center; font-size:12px; letter-spacing:1px; color:#888; margin-top:20px;">Equal Housing Opportunity</p>
@@ -317,7 +317,7 @@ contact_body = f"""
 <div class="container">
 <div class="contact-block">
 <div class="name">Mike Burns, Realtor</div>
-<div class="brokerage">RE/MAX Allegiance</div>
+<div class="brokerage">RLAH Real Estate</div>
 <div class="details">
 <p><a href="tel:7034032022">(703) 403-2022</a></p>
 <p><a href="mailto:mike@burnshomes.com">mike@burnshomes.com</a></p>
@@ -332,8 +332,8 @@ pages = [
     ("about.html", "About Mike | BURNSHOMES", "Meet Mike Burns, a DMV-based realtor with 29 years of experience serving Virginia, Maryland, and DC.", "about.html", about_body),
     ("seller-services.html", "Seller Services | BURNSHOMES", "Expert seller representation across Virginia, Maryland, and DC. Price, condition, location, and presentation.", "seller-services.html", seller_body),
     ("buyer-services.html", "Buyer Services | BURNSHOMES", "Essential and Premium buyer representation programs tailored to your home search in the DMV.", "buyer-services.html", buyer_body),
-    ("broker-information.html", "Broker Information | BURNSHOMES", "RE/MAX Allegiance broker and license information for Virginia, Maryland, and DC.", "broker-information.html", broker_body),
-    ("contact.html", "Contact | BURNSHOMES", "Contact Mike Burns, Realtor with RE/MAX Allegiance.", "contact.html", contact_body),
+    ("broker-information.html", "Broker Information | BURNSHOMES", "RLAH Real Estate broker and license information for Virginia, Maryland, and DC.", "broker-information.html", broker_body),
+    ("contact.html", "Contact | BURNSHOMES", "Contact Mike Burns, Realtor with RLAH Real Estate.", "contact.html", contact_body),
 ]
 
 for fname, title, desc, active, body in pages:

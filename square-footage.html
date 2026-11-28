@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Understanding Square Footage | BURNSHOMES</title>
+<meta name="description" content="A simple guide for home buyers: above-grade, below-grade and total finished square footage, where listing numbers come from, and how basements are counted.">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-359RJ8YZZY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-359RJ8YZZY');
+</script>
+<style>
+  :root {
+    --cream: #f5f2ea;
+    --navy: #072d5e;
+    --steel: #5889b4;
+    --brick: #a3402c;
+    --gold: #b3872a;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--cream);
+    color: #1f2a37;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 18px;
+    line-height: 1.6;
+  }
+  .wrap {
+    max-width: 760px;
+    margin: 32px auto;
+    padding: 0 16px;
+  }
+  .frame {
+    border: 3px double var(--navy);
+    background: #fffdf8;
+    padding: 40px 44px;
+  }
+  header {
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  header a.logo img {
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto 10px;
+  }
+  .wordmark {
+    color: var(--navy);
+    letter-spacing: 0.25em;
+    font-size: 15px;
+    text-transform: uppercase;
+  }
+  .rule {
+    width: 120px;
+    height: 2px;
+    background: var(--gold);
+    margin: 14px auto 0;
+    border: 0;
+  }
+  h1 {
+    color: var(--navy);
+    font-size: 32px;
+    line-height: 1.25;
+    text-align: center;
+    margin: 8px 0 12px;
+    font-weight: normal;
+  }
+  .intro {
+    text-align: center;
+    color: #3d4a5a;
+    margin: 0 auto 8px;
+    max-width: 600px;
+  }
+  h2 {
+    color: var(--navy);
+    font-size: 15px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: normal;
+    border-bottom: 1px solid var(--steel);
+    padding-bottom: 6px;
+    margin: 36px 0 16px;
+  }
+  .term {
+    border-left: 4px solid var(--steel);
+    padding: 2px 0 2px 16px;
+    margin: 0 0 18px;
+  }
+  .term strong { color: var(--navy); }
+  .source {
+    background: var(--cream);
+    padding: 16px 20px;
+    margin: 0 0 14px;
+  }
+  .source .label {
+    display: block;
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .source.tax .label { color: var(--navy); }
+  .source.agent .label { color: var(--brick); }
+  .source p { margin: 0; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0 18px;
+    font-size: 16px;
+  }
+  th {
+    text-align: left;
+    font-weight: normal;
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #fff;
+    background: var(--navy);
+    padding: 10px 12px;
+  }
+  td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #e3ddcc;
+  }
+  td.num { text-align: right; white-space: nowrap; }
+  tr.muted td { color: #8a8f96; font-style: italic; }
+  .totals {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 0 0 18px;
+  }
+  .total-box {
+    flex: 1 1 160px;
+    border: 1px solid var(--steel);
+    text-align: center;
+    padding: 12px 8px;
+  }
+  .total-box .n {
+    display: block;
+    font-size: 28px;
+    color: var(--navy);
+  }
+  .total-box .t {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #3d4a5a;
+  }
+  .total-box.all { border-color: var(--gold); background: #fbf6ea; }
+  ul { padding-left: 22px; margin: 0; }
+  li { margin-bottom: 10px; }
+  .disclaimer {
+    font-size: 14px;
+    font-style: italic;
+    color: #6b7380;
+    margin-top: 28px;
+    text-align: center;
+  }
+  footer {
+    margin-top: 28px;
+    padding-top: 18px;
+    border-top: 1px solid var(--gold);
+    text-align: center;
+    font-size: 15px;
+    color: var(--navy);
+    line-height: 1.7;
+  }
+  footer a { color: var(--navy); text-decoration: none; }
+  @media (max-width: 560px) {
+    body { font-size: 17px; }
+    .frame { padding: 28px 20px; }
+    h1 { font-size: 26px; }
+    td, th { padding: 8px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="frame">
+
+  <header>
+    <a class="logo" href="https://burnshomes.com"><img src="https://raw.githubusercontent.com/burnshomes247/listings/main/burnshomes-logo.png" alt="BURNSHOMES"></a>
+  </header>
+
+  <h1>Understanding Square Footage</h1>
+  <p class="intro">The square footage on a listing can come from different sources and be measured in different ways. Here's how to read it so you're comparing homes accurately.</p>
+
+  <h2>The Three Numbers</h2>
+  <div class="term">
+    <p><strong>Above-grade finished square footage.</strong> Finished living space on levels that are fully at or above ground: the main floor and the floors above it. This is the number appraisers and lenders rely on most, and it's the fairest way to compare one home to another.</p>
+  </div>
+  <div class="term">
+    <p><strong>Below-grade finished square footage.</strong> Finished space on any level that is partly or fully below ground, which is usually the basement. If earth touches any part of that level's walls, the whole level counts as below grade. That includes walk-out basements, even with full-size windows and a door to the yard.</p>
+  </div>
+  <div class="term">
+    <p><strong>Total finished square footage.</strong> Above-grade finished plus below-grade finished. It does not include unfinished space (storage, utility or mechanical rooms), garages, porches or decks.</p>
+  </div>
+
+  <h2>Where the Numbers Come From</h2>
+  <div class="source tax">
+    <span class="label">Tax Record (Public Record)</span>
+    <p>These figures come straight from the county assessor and flow into the listing automatically. The listing agent can't change them. Counties measure consistently, so the tax record's above-grade number is usually the more reliable baseline. Its weak spot: it can be out of date. A basement finished or an addition built without permits may not show up, and some counties don't track finished basement space at all.</p>
+  </div>
+  <div class="source agent">
+    <span class="label">Agent-Entered</span>
+    <p>The listing agent can enter their own above-grade, below-grade and total figures and label the source (agent, owner, builder plans, appraiser or estimate). Nobody verifies these numbers. They may come from a professional measurement, or they may be a rough estimate. Always check the source label.</p>
+  </div>
+
+  <h2>How the Basement Fits In</h2>
+  <p>Example home:</p>
+  <table>
+    <thead>
+      <tr><th>Level</th><th style="text-align:right">Sq Ft</th><th>Counts As</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Upper floor</td><td class="num">1,000</td><td>Above grade</td></tr>
+      <tr><td>Main floor</td><td class="num">1,200</td><td>Above grade</td></tr>
+      <tr><td>Basement (finished area)</td><td class="num">900</td><td>Below grade</td></tr>
+      <tr class="muted"><td>Basement (storage/utility)</td><td class="num">300 unfinished</td><td>Not counted</td></tr>
+    </tbody>
+  </table>
+  <div class="totals">
+    <div class="total-box"><span class="n">2,200</span><span class="t">Above-Grade Finished</span></div>
+    <div class="total-box"><span class="n">900</span><span class="t">Below-Grade Finished</span></div>
+    <div class="total-box all"><span class="n">3,100</span><span class="t">Total Finished</span></div>
+  </div>
+  <p>If the listing advertises "3,100 sq ft" and the tax record shows 2,200, both can be right: one is the total and the other is above grade only. When the gap can't be explained by the basement, ask questions.</p>
+
+  <h2>Bottom Line</h2>
+  <ul>
+    <li>Compare above-grade to above-grade. A finished basement adds value, but less per square foot than main living space.</li>
+    <li>Treat agent-entered numbers as a starting point, not a fact, especially when you're judging price per square foot.</li>
+    <li>If size matters to your decision, have the home measured. The lender's appraiser will measure it, but that happens after you're under contract.</li>
+  </ul>
+
+  <p class="disclaimer">Square footage in listings and public records is believed reliable but not guaranteed. Buyers should verify.</p>
+
+  <footer>
+    MIKE BURNS<br>
+    BURNSHOMES &middot; RLAH Real Estate<br>
+    <a href="tel:7034032022">(703) 403-2022</a> &middot; <a href="mailto:mike@burnshomes.com">mike@burnshomes.com</a> &middot; <a href="https://burnshomes.com">burnshomes.com</a>
+  </footer>
+
+</div>
+</div>
+</body>
+</html>
